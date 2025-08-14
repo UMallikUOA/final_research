@@ -35,7 +35,10 @@ The `main` branch consolidates all final versions of the code, incorporating imp
   Refined approach from Trimester 2 using only BioBERT embeddings for semantic consistency, and final categorization logic based on MedDRA and keyword extraction.
 
 ---
-
+### Trend Analysis
+- **`data_plots.ipynb`**
+  Contains the plots used in the result section of the final report
+---
 ### RAG Model Development and Evaluation
 
 - **`RAG_Experiments/` folder**  
