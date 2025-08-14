@@ -4,7 +4,7 @@ This project investigates adverse event patterns associated with second-generati
 
 ## Repository Structure and Coding History
 
-The codebase has undergone iterative updates since the project's inception in Trimester 1. Development followed a modular and experimental workflow, with older versions preserved in **branch-wise folders organized weekly** (e.g., `week_4`, `week_22`, etc.). 
+The codebase has undergone iterative updates since the project's inception in Trimester 1. Development followed a modular and experimental workflow, with older versions preserved in **branch-wise folders organized weekly** (e.g., `week_4`, `week_8`, etc.). 
 
 > **Main Branch**  
 The `main` branch consolidates all final versions of the code, incorporating improvements made across both trimesters. The files were uploaded recently for cleanup and documentation.
