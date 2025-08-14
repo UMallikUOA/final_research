@@ -1,0 +1,2132 @@
+--- Starting RAG Model Evaluation ---
+RAG components already initialized.
+RAG components initialized for evaluation.
+
+--- Running Test Case 1/25 ---
+Query: What skin reactions are reported for adult females who used desloratadine?
+Ground Truth Reactions: {'rash maculo-papular', 'guttate psoriasis', 'skin plaque', 'hypersensitivity', 'erythema nodosum', 'skin lesion', 'erythema', 'rash erythematous', 'rash', 'skin wound', 'pruritus', 'skin ulcer', 'generalised erythema', 'photosensitivity reaction', 'pallor', 'skin dystrophy', 'pruritus generalised', 'hyperhidrosis', 'dermatitis exfoliative generalised', 'skin disorder'}
+Expected Retrieved PTs (for retrieval eval): {'rash maculo-papular', 'guttate psoriasis', 'skin plaque', 'hypersensitivity', 'erythema nodosum', 'skin lesion', 'erythema', 'rash erythematous', 'rash', 'skin wound', 'pruritus', 'skin ulcer', 'generalised erythema', 'photosensitivity reaction', 'pallor', 'skin dystrophy', 'pruritus generalised', 'hyperhidrosis', 'dermatitis exfoliative generalised', 'skin disorder'}
+RAG components already initialized.
+DEBUG: received query: 'What skin reactions are reported for adult females who used desloratadine?'
+DEBUG: lower_query: 'what skin reactions are reported for adult females who used desloratadine?'
+DEBUG: Direct whole-word match for 'DESLORATADINE' found and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 63 nodes remain.
+DEBUG: Selected 30 documents (out of 63 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'rash maculo-papular', 'skin dystrophy', 'skin plaque', 'hypersensitivity', 'erythema nodosum', 'erythema', 'rash erythematous', 'rash', 'pruritus', 'skin ulcer', 'generalised erythema', 'photosensitivity reaction'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 63 nodes remain.
+DEBUG: Selected 30 documents (out of 63 filtered) for LLM context.
+
+Model Response:
+- erythema
+- erythema nodosum
+- generalised erythema
+- hypersensitivity
+- photosensitivity reaction
+- pruritus
+- rash erythematous
+- rash maculo-papular
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 58.0 years (adult). Patient Sex: F. Reported Reaction: rash erythematous. Reacti...
+  Metadata: {'primaryid': 88102123, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'rash erythematous', 'reaction_category': 'Dermatological/Allergic', 'age': 58.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 58.0 years (adult). Patient Sex: F. Reported Reaction: rash erythematous. Reacti...
+  Metadata: {'primaryid': 88102124, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'rash erythematous', 'reaction_category': 'Dermatological/Allergic', 'age': 58.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 34.0 years (adult). Patient Sex: F. Reported Reaction: rash maculo-papular. Reaction Sys...
+  Metadata: {'primaryid': 177571021, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'rash maculo-papular', 'reaction_category': 'Dermatological/Allergic', 'age': 34.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 42.0 years (adult). Patient Sex: F. Reported Reaction: erythema. Reaction System...
+  Metadata: {'primaryid': 158494731, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 42.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 229892163, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 229892161, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 38.0 years (adult). Patient Sex: F. Reported Reaction: generalised erythema. Rea...
+  Metadata: {'primaryid': 157830631, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'generalised erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 38.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 38.0 years (adult). Patient Sex: F. Reported Reaction: photosensitivity reaction. Reacti...
+  Metadata: {'primaryid': 172563452, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'photosensitivity reaction', 'reaction_category': 'Dermatological/Allergic', 'age': 38.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 213911454, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 228123991, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 56.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 213911457, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 56.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: rash. Reaction System Category: De...
+  Metadata: {'primaryid': 229892163, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'rash', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 26.0 years (adult). Patient Sex: F. Reported Reaction: erythema nodosum. Reaction System...
+  Metadata: {'primaryid': 170283944, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'erythema nodosum', 'reaction_category': 'Dermatological/Allergic', 'age': 26.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction System ...
+  Metadata: {'primaryid': 213911458, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: rash. Reaction System Category: De...
+  Metadata: {'primaryid': 229892161, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'rash', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 58.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System...
+  Metadata: {'primaryid': 88102123, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 58.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 49.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System...
+  Metadata: {'primaryid': 189473741, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 49.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 58.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System...
+  Metadata: {'primaryid': 88102124, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 58.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 43.0 years (adult). Patient Sex: F. Reported Reaction: skin dystrophy. Reaction System C...
+  Metadata: {'primaryid': 174520952, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'skin dystrophy', 'reaction_category': 'Dermatological/Allergic', 'age': 43.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 42.0 years (adult). Patient Sex: F. Reported Reaction: skin plaque. Reaction Sys...
+  Metadata: {'primaryid': 158494731, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'skin plaque', 'reaction_category': 'Dermatological/Allergic', 'age': 42.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: erythema. Reaction System Categor...
+  Metadata: {'primaryid': 177469031, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System Category...
+  Metadata: {'primaryid': 229892163, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: erythema. Reaction System Categor...
+  Metadata: {'primaryid': 173899311, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 38.0 years (adult). Patient Sex: F. Reported Reaction: photosensitivity reaction. Reacti...
+  Metadata: {'primaryid': 169679772, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'photosensitivity reaction', 'reaction_category': 'Dermatological/Allergic', 'age': 38.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System Category...
+  Metadata: {'primaryid': 229892161, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 43.0 years (adult). Patient Sex: F. Reported Reaction: skin dystrophy. Reaction System C...
+  Metadata: {'primaryid': 174520951, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'skin dystrophy', 'reaction_category': 'Dermatological/Allergic', 'age': 43.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System Category...
+  Metadata: {'primaryid': 213911454, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: erythema. Reaction System Categor...
+  Metadata: {'primaryid': 175166171, 'drugname': 'DESLORATADINE.', 'prod_ai': 'DESLORATADINE', 'pt': 'erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 29:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 56.0 years (adult). Patient Sex: F. Reported Reaction: pruritus. Reaction System Category...
+  Metadata: {'primaryid': 213911457, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 56.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 30:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 52.0 years (adult). Patient Sex: F. Reported Reaction: skin ulcer. Reaction System Catego...
+  Metadata: {'primaryid': 229892163, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'skin ulcer', 'reaction_category': 'Dermatological/Allergic', 'age': 52.0, 'sex': 'F', 'age_group': 'adult'}
+Actual Retrieved PTs (from RAG sources): {'rash maculo-papular', 'skin dystrophy', 'skin plaque', 'hypersensitivity', 'erythema nodosum', 'erythema', 'rash erythematous', 'rash', 'pruritus', 'skin ulcer', 'generalised erythema', 'photosensitivity reaction'}
+Generated Reactions (from LLM output, post-filtered): {'rash maculo-papular', 'hypersensitivity', 'erythema nodosum', 'erythema', 'rash erythematous', 'pruritus', 'generalised erythema', 'photosensitivity reaction'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.60
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.11
+ROUGE-L F1: 0.56
+Jaccard Similarity: 0.40
+
+--- Running Test Case 2/25 ---
+Query: List all dermatological adverse events for males over 60 years old who took FEXOFENADINE.
+Ground Truth Reactions: {'skin mass', 'rash pruritic', 'skin irritation', 'hypersensitivity', 'acute generalised exanthematous pustulosis', 'eczema', 'lip swelling', 'erythema', 'pruritus', 'skin disorder'}
+Expected Retrieved PTs (for retrieval eval): {'skin mass', 'rash pruritic', 'skin irritation', 'hypersensitivity', 'acute generalised exanthematous pustulosis', 'eczema', 'lip swelling', 'erythema', 'pruritus', 'skin disorder'}
+RAG components already initialized.
+DEBUG: received query: 'List all dermatological adverse events for males over 60 years old who took FEXOFENADINE.'
+DEBUG: lower_query: 'list all dermatological adverse events for males over 60 years old who took fexofenadine.'
+DEBUG: Direct whole-word match for 'FEXOFENADINE' found and matched to: ['FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'M', 'age_group': 'elderly', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'elderly', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 24 nodes remain.
+DEBUG: Selected 24 documents (out of 24 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'skin mass', 'rash pruritic', 'skin irritation', 'lip swelling', 'eczema', 'acute generalised exanthematous pustulosis', 'hypersensitivity', 'erythema', 'pruritus', 'skin disorder'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'elderly', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 24 nodes remain.
+DEBUG: Selected 24 documents (out of 24 filtered) for LLM context.
+
+Model Response:
+- acute generalised exanthematous pustulosis
+- eczema
+- erythema
+- hypersensitivity
+- lip swelling
+- pruritus
+- rash pruritic
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: erythema. Reaction S...
+  Metadata: {'primaryid': 199916342, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'erythema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 72.0 years (elderly). Patient Sex: M. Reported Reaction: rash pruritic. React...
+  Metadata: {'primaryid': 178474581, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'rash pruritic', 'reaction_category': 'Dermatological/Allergic', 'age': 72.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 72.0 years (elderly). Patient Sex: M. Reported Reaction: rash pruritic. React...
+  Metadata: {'primaryid': 178556941, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'rash pruritic', 'reaction_category': 'Dermatological/Allergic', 'age': 72.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: eczema. Reaction Sys...
+  Metadata: {'primaryid': 199933791, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: eczema. Reaction Sys...
+  Metadata: {'primaryid': 199916341, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 74.0 years (elderly). Patient Sex: M. Reported Reaction: pruritus. Reaction S...
+  Metadata: {'primaryid': 168846641, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 74.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: eczema. Reaction Sys...
+  Metadata: {'primaryid': 199916342, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: skin irritation. Rea...
+  Metadata: {'primaryid': 199933791, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin irritation', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: skin irritation. Rea...
+  Metadata: {'primaryid': 199916341, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin irritation', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: skin irritation. Rea...
+  Metadata: {'primaryid': 199916342, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin irritation', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: lip swelling. Reacti...
+  Metadata: {'primaryid': 169984771, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'lip swelling', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: skin disorder. React...
+  Metadata: {'primaryid': 203564821, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin disorder', 'reaction_category': 'Dermatological/Allergic', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: acute ...
+  Metadata: {'primaryid': 206081951, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'acute generalised exanthematous pustulosis', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE\FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 74.0 years (elderly). Patient Sex: M. Reported Reaction: pruritu...
+  Metadata: {'primaryid': 164134801, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 74.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: eczema...
+  Metadata: {'primaryid': 200026721, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: eczema...
+  Metadata: {'primaryid': 199827811, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE.. Patient Age: 74.0 years (elderly). Patient Sex: M. Reported Reaction: pruri...
+  Metadata: {'primaryid': 163763891, 'drugname': 'FEXOFENADINE HYDROCHLORIDE.', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 74.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE.. Patient Age: 74.0 years (elderly). Patient Sex: M. Reported Reaction: pruri...
+  Metadata: {'primaryid': 163697791, 'drugname': 'FEXOFENADINE HYDROCHLORIDE.', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 74.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: skin i...
+  Metadata: {'primaryid': 199827811, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin irritation', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE.. Patient Age: 69.0 years (elderly). Patient Sex: M. Reported Reaction: lip s...
+  Metadata: {'primaryid': 169744181, 'drugname': 'FEXOFENADINE HYDROCHLORIDE.', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'lip swelling', 'reaction_category': 'Dermatological/Allergic', 'age': 69.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 66.0 years (elderly). Patient Sex: M. Reported Reaction: prurit...
+  Metadata: {'primaryid': 247768861, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 66.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 66.0 years (elderly). Patient Sex: M. Reported Reaction: skin m...
+  Metadata: {'primaryid': 247768861, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'skin mass', 'reaction_category': 'Dermatological/Allergic', 'age': 66.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 77.0 years (elderly). Patient Sex: M. Reported Reaction: hypers...
+  Metadata: {'primaryid': 220558621, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 77.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE 180. Patient Age: 78.0 years (elderly). Patient Sex: M. Reported Reaction: pr...
+  Metadata: {'primaryid': 206122741, 'drugname': 'FEXOFENADINE HYDROCHLORIDE 180', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 78.0, 'sex': 'M', 'age_group': 'elderly'}
+Actual Retrieved PTs (from RAG sources): {'skin mass', 'rash pruritic', 'skin irritation', 'lip swelling', 'eczema', 'acute generalised exanthematous pustulosis', 'hypersensitivity', 'erythema', 'pruritus', 'skin disorder'}
+Generated Reactions (from LLM output, post-filtered): {'rash pruritic', 'hypersensitivity', 'acute generalised exanthematous pustulosis', 'eczema', 'lip swelling', 'erythema', 'pruritus'}
+Retrieval Precision: 1.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.61
+ROUGE-L F1: 0.80
+Jaccard Similarity: 0.70
+
+--- Running Test Case 3/25 ---
+Query: Are there any gastrointestinal reactions reported for children using CETIRIZINE?
+Ground Truth Reactions: {'gastrooesophageal reflux disease', 'abdominal discomfort', 'abdominal pain upper', 'diarrhoea', 'nausea', 'coeliac disease', 'vomiting', 'abdominal pain'}
+Expected Retrieved PTs (for retrieval eval): {'gastrooesophageal reflux disease', 'abdominal discomfort', 'abdominal pain upper', 'diarrhoea', 'nausea', 'coeliac disease', 'vomiting', 'abdominal pain'}
+RAG components already initialized.
+DEBUG: received query: 'Are there any gastrointestinal reactions reported for children using CETIRIZINE?'
+DEBUG: lower_query: 'are there any gastrointestinal reactions reported for children using cetirizine?'
+DEBUG: Direct whole-word match for 'CETIRIZINE' found and matched to: ['CETIRIZINE HYDROCHLORIDE', 'CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE']
+DEBUG: returning filters: {'age_group': 'child', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: After filtering, 28 nodes remain.
+DEBUG: Selected 28 documents (out of 28 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'gastrooesophageal reflux disease', 'abdominal discomfort', 'abdominal pain upper', 'diarrhoea', 'nausea', 'vomiting', 'abdominal pain'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: After filtering, 28 nodes remain.
+DEBUG: Selected 28 documents (out of 28 filtered) for LLM context.
+
+Model Response:
+- abdominal discomfort
+- diarrhoea
+- gastrooesophageal reflux disease
+- nausea
+- vomiting
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 3.0 years (child). Patient Sex: F. Reported React...
+  Metadata: {'primaryid': 199232501, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 3.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 4.0 years (child). Patient Sex: M. Reported Reaction: gastrooesophageal reflux di...
+  Metadata: {'primaryid': 167675741, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'gastrooesophageal reflux disease', 'reaction_category': 'Gastrointestinal', 'age': 4.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 5.0 years (child). Patient Sex: F. Reported Reaction: abdominal pain. Reaction Sy...
+  Metadata: {'primaryid': 155731782, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 5.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 176823161, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 171573381, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 169425132, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 3.0 years (child). Patient Sex: M. Reported React...
+  Metadata: {'primaryid': 214504601, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'diarrhoea', 'reaction_category': 'Gastrointestinal', 'age': 3.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 3.0 years (child). Patient Sex: F. Reported React...
+  Metadata: {'primaryid': 199232501, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal discomfort', 'reaction_category': 'Gastrointestinal', 'age': 3.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 169425131, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 168971962, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 8.0 years (child). Patient Sex: F. Reported React...
+  Metadata: {'primaryid': 229730131, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'vomiting', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 5.0 years (child). Patient Sex: F. Reported Reaction: abdominal pain. Reaction Sy...
+  Metadata: {'primaryid': 162442581, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 5.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 7.0 years (child). Patient Sex: M. Reported React...
+  Metadata: {'primaryid': 214504581, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'vomiting', 'reaction_category': 'Gastrointestinal', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 4.0 years (child). Patient Sex: M. Reported Reaction: abdominal pain upper. React...
+  Metadata: {'primaryid': 167675741, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain upper', 'reaction_category': 'Gastrointestinal', 'age': 4.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Cat...
+  Metadata: {'primaryid': 168978522, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 8.0 years (child). Patient Sex: F. Reported Reaction: abdominal pain. Reaction Sy...
+  Metadata: {'primaryid': 158911932, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 7.0 years (child). Patient Sex: M. Reported React...
+  Metadata: {'primaryid': 214504581, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 8.0 years (child). Patient Sex: F. Reported React...
+  Metadata: {'primaryid': 229730131, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 11.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Ca...
+  Metadata: {'primaryid': 180246471, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 11.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 10.0 years (child). Patient Sex: M. Reported Reac...
+  Metadata: {'primaryid': 229730211, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain upper', 'reaction_category': 'Gastrointestinal', 'age': 10.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 8.0 years (child). Patient Sex: F. Reported React...
+  Metadata: {'primaryid': 229730161, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain upper', 'reaction_category': 'Gastrointestinal', 'age': 8.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HCL. Patient Age: 9.0 years (child). Patient Sex: unknown. Reported Reaction: diarrhoea. Reacti...
+  Metadata: {'primaryid': 195204041, 'drugname': 'CETIRIZINE HCL', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'diarrhoea', 'reaction_category': 'Gastrointestinal', 'age': 9.0, 'sex': 'unknown', 'age_group': 'child'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 11.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Ca...
+  Metadata: {'primaryid': 180417461, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 11.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 10.0 years (child). Patient Sex: F. Reported Reac...
+  Metadata: {'primaryid': 168863951, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'vomiting', 'reaction_category': 'Gastrointestinal', 'age': 10.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HCL. Patient Age: 4.0 years (child). Patient Sex: M. Reported Reaction: vomiting. Reaction Syst...
+  Metadata: {'primaryid': 178698381, 'drugname': 'CETIRIZINE HCL', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'vomiting', 'reaction_category': 'Gastrointestinal', 'age': 4.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HYDROCHLORIDE.. Patient Age: 10.0 years (child). Patient Sex: F. Reported Reaction: diarrhoea. ...
+  Metadata: {'primaryid': 174037251, 'drugname': 'CETIRIZINE HYDROCHLORIDE.', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'diarrhoea', 'reaction_category': 'Gastrointestinal', 'age': 10.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 11.0 years (child). Patient Sex: F. Reported Reaction: nausea. Reaction System Ca...
+  Metadata: {'primaryid': 180103911, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'nausea', 'reaction_category': 'Gastrointestinal', 'age': 11.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY. Patient Age: 6.0 years (child). Patient Sex: M. Reported React...
+  Metadata: {'primaryid': 180681141, 'drugname': 'CHILDRENS CETIRIZINE HYDROCHLORIDE ALLERGY', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'gastrooesophageal reflux disease', 'reaction_category': 'Gastrointestinal', 'age': 6.0, 'sex': 'M', 'age_group': 'child'}
+Actual Retrieved PTs (from RAG sources): {'gastrooesophageal reflux disease', 'abdominal discomfort', 'abdominal pain upper', 'diarrhoea', 'nausea', 'vomiting', 'abdominal pain'}
+Generated Reactions (from LLM output, post-filtered): {'gastrooesophageal reflux disease', 'abdominal discomfort', 'diarrhoea', 'nausea', 'vomiting'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.88
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.32
+ROUGE-L F1: 0.70
+Jaccard Similarity: 0.62
+
+--- Running Test Case 4/25 ---
+Query: List any adverse effects of Pseudoephedrine in infants.
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'List any adverse effects of Pseudoephedrine in infants.'
+DEBUG: lower_query: 'list any adverse effects of pseudoephedrine in infants.'
+DEBUG: Direct whole-word match for 'PSEUDOEPHEDRINE' found and matched to: ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\PSEUDOEPHEDRINE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'age_group': 'infant', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'DESLORATADINE\\PSEUDOEPHEDRINE', 'CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE']}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'infant', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'DESLORATADINE\\PSEUDOEPHEDRINE', 'CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE']}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 5/25 ---
+Query: What are the psychiatric adverse events for young adults using MONTELUKAST?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'What are the psychiatric adverse events for young adults using MONTELUKAST?'
+DEBUG: lower_query: 'what are the psychiatric adverse events for young adults using montelukast?'
+DEBUG: Direct whole-word match for 'MONTELUKAST' found and matched to: ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']
+DEBUG: returning filters: {'age_group': 'adult', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Psychiatric'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'adult', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Psychiatric'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 6/25 ---
+Query: Report any adverse reactions to a fictional drug called 'ZYX-987' for any patient group.
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Report any adverse reactions to a fictional drug called 'ZYX-987' for any patient group.'
+DEBUG: lower_query: 'report any adverse reactions to a fictional drug called 'zyx-987' for any patient group.'
+DEBUG: no fuzzy match found for 'zyx-987' with threshold 90.
+DEBUG: No fuzzy match for quoted drug: 'zyx-987'
+DEBUG: no fuzzy match found for 'a fictional drug called' with threshold 90.
+DEBUG: No fuzzy match for keyword-based drug: 'a fictional drug called'
+DEBUG: no prod_ai matched for query: 'Report any adverse reactions to a fictional drug called 'ZYX-987' for any patient group.'
+DEBUG: returning filters: {}
+
+Model Response:
+No reactions found for this drug. The drug name was not recognized or is not in the database.
+
+Sources Used:
+No source documents were retrieved as the drug was not recognized.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 7/25 ---
+Query: Show respiratory reactions to DESLORATADINE in males under 12 years old.
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Show respiratory reactions to DESLORATADINE in males under 12 years old.'
+DEBUG: lower_query: 'show respiratory reactions to desloratadine in males under 12 years old.'
+DEBUG: Exact match of raw query 'desloratadine' to normalized 'desloratadine'.
+DEBUG: Extracted keyword-based drug 'desloratadine' and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'M', 'age_group': 'child', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Respiratory'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'child', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Respiratory'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 8/25 ---
+Query: What are the cardiovascular reactions of CETIRIZINE in elderly patients?
+Ground Truth Reactions: {'ventricular tachycardia', 'angina pectoris', 'bradypnoea', 'syncope', 'hypertension', 'heart rate increased', 'bradycardia', 'cardiospasm', 'myocardial infarction', 'atrial tachycardia', 'cardiac failure', 'atrioventricular block complete', 'tachycardia', 'arrhythmia', 'atrial fibrillation', 'cardiac arrest', 'electrocardiogram qt prolonged', 'cardiac disorder', 'presyncope', 'atrioventricular block', 'bradyphrenia', 'palpitations', 'arrhythmia supraventricular', 'heart rate irregular', 'cardiac failure chronic'}
+Expected Retrieved PTs (for retrieval eval): {'ventricular tachycardia', 'angina pectoris', 'bradypnoea', 'syncope', 'hypertension', 'heart rate increased', 'bradycardia', 'cardiospasm', 'myocardial infarction', 'atrial tachycardia', 'cardiac failure', 'atrioventricular block complete', 'tachycardia', 'arrhythmia', 'atrial fibrillation', 'cardiac arrest', 'electrocardiogram qt prolonged', 'cardiac disorder', 'presyncope', 'atrioventricular block', 'bradyphrenia', 'palpitations', 'arrhythmia supraventricular', 'heart rate irregular', 'cardiac failure chronic'}
+RAG components already initialized.
+DEBUG: received query: 'What are the cardiovascular reactions of CETIRIZINE in elderly patients?'
+DEBUG: lower_query: 'what are the cardiovascular reactions of cetirizine in elderly patients?'
+DEBUG: Direct whole-word match for 'CETIRIZINE' found and matched to: ['CETIRIZINE HYDROCHLORIDE', 'CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE']
+DEBUG: returning filters: {'age_group': 'elderly', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'elderly', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: After filtering, 111 nodes remain.
+DEBUG: Selected 30 documents (out of 111 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'tachycardia', 'bradypnoea', 'palpitations', 'cardiospasm', 'atrial tachycardia'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'elderly', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: After filtering, 111 nodes remain.
+DEBUG: Selected 30 documents (out of 111 filtered) for LLM context.
+
+Model Response:
+- atrial tachycardia
+- bradypnoea
+- cardiospasm
+- palpitations
+- tachycardia
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 185614521, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 185614523, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 185614522, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222763272, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222421592, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222486576, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: cardiospasm. Reaction Sy...
+  Metadata: {'primaryid': 222486576, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'cardiospasm', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222571436, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: tachycardia. Reaction Sy...
+  Metadata: {'primaryid': 222763272, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222689432, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: cardiospasm. Reaction Sy...
+  Metadata: {'primaryid': 222421592, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'cardiospasm', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 186116071, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 223232001, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 65.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222389173, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 65.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: tachycardia. Reaction Sy...
+  Metadata: {'primaryid': 222486576, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: tachycardia. Reaction Sy...
+  Metadata: {'primaryid': 222421592, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: atrial tachycardia. Reac...
+  Metadata: {'primaryid': 223232001, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'atrial tachycardia', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: cardiospasm. Reaction Sy...
+  Metadata: {'primaryid': 222763272, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'cardiospasm', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 83.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 239824571, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 83.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 88.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222750392, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 88.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: atrial tachycardia. Reac...
+  Metadata: {'primaryid': 222486576, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'atrial tachycardia', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 83.0 years (elderly). Patient Sex: unknown. Reported Reaction: palpitations. Reac...
+  Metadata: {'primaryid': 234795412, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 83.0, 'sex': 'unknown', 'age_group': 'elderly'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 65.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222454035, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 65.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 71.0 years (elderly). Patient Sex: M. Reported Reaction: tachycardia. Reaction Sy...
+  Metadata: {'primaryid': 223232001, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 71.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: cardiospasm. Reaction Sy...
+  Metadata: {'primaryid': 222571436, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'cardiospasm', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 185892251, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: atrial tachycardia. Reac...
+  Metadata: {'primaryid': 222421592, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'atrial tachycardia', 'reaction_category': 'Cardiovascular', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: bradypnoea. Reaction Sys...
+  Metadata: {'primaryid': 186637881, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'bradypnoea', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 29:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: tachycardia. Reaction Sy...
+  Metadata: {'primaryid': 198062481, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 30:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 83.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction S...
+  Metadata: {'primaryid': 222689454, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 83.0, 'sex': 'F', 'age_group': 'elderly'}
+Actual Retrieved PTs (from RAG sources): {'tachycardia', 'bradypnoea', 'palpitations', 'cardiospasm', 'atrial tachycardia'}
+Generated Reactions (from LLM output, post-filtered): {'tachycardia', 'bradypnoea', 'palpitations', 'cardiospasm', 'atrial tachycardia'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.20
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.00
+ROUGE-L F1: 0.24
+Jaccard Similarity: 0.20
+
+--- Running Test Case 9/25 ---
+Query: Show neurological reactions for adult males taking LORATADINE.
+Ground Truth Reactions: {'muscle contractions involuntary', 'musculoskeletal discomfort', 'anosmia', 'paranoia', 'impaired work ability', 'muscle spasms', 'headache', 'muscle oedema', 'musculoskeletal chest pain', 'dizziness', 'dizziness postural', 'asthenia', 'myalgia', 'somnolence', 'insomnia', 'rhabdomyolysis', 'ageusia', 'parkinsonism', 'muscular weakness', 'dyskinesia', 'paraesthesia'}
+Expected Retrieved PTs (for retrieval eval): {'muscle contractions involuntary', 'musculoskeletal discomfort', 'anosmia', 'paranoia', 'impaired work ability', 'muscle spasms', 'headache', 'muscle oedema', 'musculoskeletal chest pain', 'dizziness', 'dizziness postural', 'asthenia', 'myalgia', 'somnolence', 'insomnia', 'rhabdomyolysis', 'ageusia', 'parkinsonism', 'muscular weakness', 'dyskinesia', 'paraesthesia'}
+RAG components already initialized.
+DEBUG: received query: 'Show neurological reactions for adult males taking LORATADINE.'
+DEBUG: lower_query: 'show neurological reactions for adult males taking loratadine.'
+DEBUG: Direct whole-word match for 'LORATADINE' found and matched to: ['LORATADINE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE']
+DEBUG: returning filters: {'sex': 'M', 'age_group': 'adult', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Neurological'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'adult', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Neurological'}
+DEBUG: After filtering, 43 nodes remain.
+DEBUG: Selected 30 documents (out of 43 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'muscle spasms', 'headache', 'muscle oedema', 'dizziness', 'asthenia', 'dyskinesia', 'insomnia', 'somnolence', 'paraesthesia'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'adult', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Neurological'}
+DEBUG: After filtering, 43 nodes remain.
+DEBUG: Selected 30 documents (out of 43 filtered) for LLM context.
+
+Model Response:
+- asthenia
+- dizziness
+- insomnia
+- paraesthesia
+- somnolence
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 60.0 years (adult). Patient Sex: M. Reported Reaction: muscle spasms. Reaction System Category:...
+  Metadata: {'primaryid': 229849901, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 33.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 164853851, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 33.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: M. Reported Reaction: muscle spasms. Reaction System Category...
+  Metadata: {'primaryid': 160126662, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 23.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 196860211, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 23.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: M. Reported Reaction: muscle spasms. Reaction System Category...
+  Metadata: {'primaryid': 160615091, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 56.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. Reaction System Category: Ne...
+  Metadata: {'primaryid': 196862251, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 56.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: insomnia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 196861451, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 59.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 196860801, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 59.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 64.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: Ne...
+  Metadata: {'primaryid': 241516421, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 64.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: insomnia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 196861471, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: insomnia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 196859781, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE ORALLY DISINTEGRATING TABLET. Patient Age: 47.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. ...
+  Metadata: {'primaryid': 166657831, 'drugname': 'LORATADINE ORALLY DISINTEGRATING TABLET', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 47.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 56.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 184810021, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 56.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 44.0 years (adult). Patient Sex: M. Reported Reaction: paraesthesia. Reaction System Category:...
+  Metadata: {'primaryid': 161057461, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'paraesthesia', 'reaction_category': 'Neurological', 'age': 44.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 64.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. Reaction System Category: Neu...
+  Metadata: {'primaryid': 241516421, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 64.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: insomnia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 195037191, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 43.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. Reaction System Category: Ne...
+  Metadata: {'primaryid': 166991601, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 43.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 33.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 158936221, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 33.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 33.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 158547651, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 33.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. Reaction System Category: Ne...
+  Metadata: {'primaryid': 181298781, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 28.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: Ne...
+  Metadata: {'primaryid': 209221711, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 28.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: Ne...
+  Metadata: {'primaryid': 222600831, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 33.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: N...
+  Metadata: {'primaryid': 158991811, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 33.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 53.0 years (adult). Patient Sex: M. Reported Reaction: somnolence. Reaction System Category: Ne...
+  Metadata: {'primaryid': 206286002, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 53.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 56.0 years (adult). Patient Sex: M. Reported Reaction: asthenia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 184810021, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'asthenia', 'reaction_category': 'Neurological', 'age': 56.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 57.0 years (adult). Patient Sex: M. Reported Reaction: insomnia. Reaction System Category: Neu...
+  Metadata: {'primaryid': 196862061, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 57.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 60.0 years (adult). Patient Sex: M. Reported Reaction: dyskinesia. Reaction System Category: N...
+  Metadata: {'primaryid': 160615091, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'dyskinesia', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 57.0 years (adult). Patient Sex: M. Reported Reaction: muscle oedema. Reaction System Category:...
+  Metadata: {'primaryid': 246921291, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'muscle oedema', 'reaction_category': 'Neurological', 'age': 57.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 29:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 63.0 years (adult). Patient Sex: M. Reported Reaction: headache. Reaction System Category: Neu...
+  Metadata: {'primaryid': 181298781, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'headache', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'M', 'age_group': 'adult'}
+
+Document 30:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 37.0 years (adult). Patient Sex: M. Reported Reaction: dizziness. Reaction System Category: Neu...
+  Metadata: {'primaryid': 238303801, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 37.0, 'sex': 'M', 'age_group': 'adult'}
+Actual Retrieved PTs (from RAG sources): {'muscle spasms', 'headache', 'muscle oedema', 'dizziness', 'asthenia', 'dyskinesia', 'insomnia', 'somnolence', 'paraesthesia'}
+Generated Reactions (from LLM output, post-filtered): {'somnolence', 'dizziness', 'asthenia', 'insomnia', 'paraesthesia'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.43
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.00
+ROUGE-L F1: 0.27
+Jaccard Similarity: 0.24
+
+--- Running Test Case 10/25 ---
+Query: Are there any general systemic disorders reported for infants on DESLORATADINE?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any general systemic disorders reported for infants on DESLORATADINE?'
+DEBUG: lower_query: 'are there any general systemic disorders reported for infants on desloratadine?'
+DEBUG: Direct whole-word match for 'DESLORATADINE' found and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'age_group': 'infant', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'General/Systemic Disorders'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'infant', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'General/Systemic Disorders'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 11/25 ---
+Query: What are the musculoskeletal adverse events for females using FEXOFENADINE?
+Ground Truth Reactions: {'joint swelling', 'arthralgia', 'arthritis', 'pain in extremity', 'costochondritis', 'back pain'}
+Expected Retrieved PTs (for retrieval eval): {'joint swelling', 'arthralgia', 'arthritis', 'pain in extremity', 'costochondritis', 'back pain'}
+RAG components already initialized.
+DEBUG: received query: 'What are the musculoskeletal adverse events for females using FEXOFENADINE?'
+DEBUG: lower_query: 'what are the musculoskeletal adverse events for females using fexofenadine?'
+DEBUG: Direct whole-word match for 'FEXOFENADINE' found and matched to: ['FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'F', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Musculoskeletal'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Musculoskeletal'}
+DEBUG: After filtering, 16 nodes remain.
+DEBUG: Selected 16 documents (out of 16 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'joint swelling', 'costochondritis', 'back pain', 'arthralgia', 'pain in extremity', 'arthritis'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Musculoskeletal'}
+DEBUG: After filtering, 16 nodes remain.
+DEBUG: Selected 16 documents (out of 16 filtered) for LLM context.
+
+Model Response:
+- arthralgia
+- arthritis
+- costochondritis
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 49.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 208488141, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 49.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 44.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 172761061, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 44.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 29.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 206523011, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 29.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 234195631, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 48.5 years (adult). Patient Sex: F. Reported Reaction: costochondritis. React...
+  Metadata: {'primaryid': 240957171, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'costochondritis', 'reaction_category': 'Musculoskeletal', 'age': 48.5, 'sex': 'F', 'age_group': 'adult'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 234161462, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: arthralgia. Reaction S...
+  Metadata: {'primaryid': 233969491, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 44.0 years (adult). Patient Sex: F. Reported Reaction: arthritis. Reaction Sy...
+  Metadata: {'primaryid': 172761061, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthritis', 'reaction_category': 'Musculoskeletal', 'age': 44.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE. Patient Age: 39.0 years (adult). Patient Sex: F. Reported Reaction: arthralg...
+  Metadata: {'primaryid': 201668561, 'drugname': 'FEXOFENADINE HYDROCHLORIDE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'arthralgia', 'reaction_category': 'Musculoskeletal', 'age': 39.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: ALLERGY RELIEF (FEXOFENADINE HYDROCHLORIDE). Patient Age: 50.0 years (adult). Patient Sex: F. Reported R...
+  Metadata: {'primaryid': 235343961, 'drugname': 'ALLERGY RELIEF (FEXOFENADINE HYDROCHLORIDE)', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'joint swelling', 'reaction_category': 'Musculoskeletal', 'age': 50.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HCL. Patient Age: 80.0 years (elderly). Patient Sex: F. Reported Reaction: pain in extremit...
+  Metadata: {'primaryid': 180368861, 'drugname': 'FEXOFENADINE HCL', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pain in extremity', 'reaction_category': 'Musculoskeletal', 'age': 80.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HCL. Patient Age: 80.0 years (elderly). Patient Sex: F. Reported Reaction: back pain. React...
+  Metadata: {'primaryid': 180368861, 'drugname': 'FEXOFENADINE HCL', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'back pain', 'reaction_category': 'Musculoskeletal', 'age': 80.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: EQUATE ALLERGY RELIEF (FEXOFENADINE HYDROCHLORIDE). Patient Age: 16.0 years (adolescent). Patient Sex: F...
+  Metadata: {'primaryid': 177815331, 'drugname': 'EQUATE ALLERGY RELIEF (FEXOFENADINE HYDROCHLORIDE)', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'back pain', 'reaction_category': 'Musculoskeletal', 'age': 16.0, 'sex': 'F', 'age_group': 'adolescent'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HCL. Patient Age: 66.0 years (elderly). Patient Sex: F. Reported Reaction: pain in extremit...
+  Metadata: {'primaryid': 169602221, 'drugname': 'FEXOFENADINE HCL', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'pain in extremity', 'reaction_category': 'Musculoskeletal', 'age': 66.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HCL. Patient Age: 31.0 years (adult). Patient Sex: F. Reported Reaction: back pain. Reactio...
+  Metadata: {'primaryid': 169602181, 'drugname': 'FEXOFENADINE HCL', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'back pain', 'reaction_category': 'Musculoskeletal', 'age': 31.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE HYDROCHLORIDE FILM-COATED TABLETS, DR. REDDY'S. Patient Age: 48.0 years (adult). Patient Se...
+  Metadata: {'primaryid': 174437531, 'drugname': "FEXOFENADINE HYDROCHLORIDE FILM-COATED TABLETS, DR. REDDY'S", 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'back pain', 'reaction_category': 'Musculoskeletal', 'age': 48.0, 'sex': 'F', 'age_group': 'adult'}
+Actual Retrieved PTs (from RAG sources): {'joint swelling', 'costochondritis', 'back pain', 'arthralgia', 'pain in extremity', 'arthritis'}
+Generated Reactions (from LLM output, post-filtered): {'costochondritis', 'arthralgia', 'arthritis'}
+Retrieval Precision: 1.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.03
+ROUGE-L F1: 0.46
+Jaccard Similarity: 0.50
+
+--- Running Test Case 12/25 ---
+Query: Report product administration issues for any patient taking MONTELUKAST.
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Report product administration issues for any patient taking MONTELUKAST.'
+DEBUG: lower_query: 'report product administration issues for any patient taking montelukast.'
+DEBUG: Direct whole-word match for 'MONTELUKAST' found and matched to: ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']
+DEBUG: returning filters: {'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Product/Administration Issues'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Product/Administration Issues'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 13/25 ---
+Query: Are there any adverse effects for a drug called 'XYZ-123'?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any adverse effects for a drug called 'XYZ-123'?'
+DEBUG: lower_query: 'are there any adverse effects for a drug called 'xyz-123'?'
+DEBUG: no fuzzy match found for 'xyz-123' with threshold 90.
+DEBUG: No fuzzy match for quoted drug: 'xyz-123'
+DEBUG: no fuzzy match found for 'a drug called' with threshold 90.
+DEBUG: No fuzzy match for keyword-based drug: 'a drug called'
+DEBUG: no prod_ai matched for query: 'Are there any adverse effects for a drug called 'XYZ-123'?'
+DEBUG: returning filters: {}
+
+Model Response:
+No reactions found for this drug. The drug name was not recognized or is not in the database.
+
+Sources Used:
+No source documents were retrieved as the drug was not recognized.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 14/25 ---
+Query: What are the respiratory issues for children using FEXOFENADINE?
+Ground Truth Reactions: {'dyspnoea'}
+Expected Retrieved PTs (for retrieval eval): {'dyspnoea'}
+RAG components already initialized.
+DEBUG: received query: 'What are the respiratory issues for children using FEXOFENADINE?'
+DEBUG: lower_query: 'what are the respiratory issues for children using fexofenadine?'
+DEBUG: Direct whole-word match for 'FEXOFENADINE' found and matched to: ['FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'age_group': 'child', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Respiratory'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Respiratory'}
+DEBUG: After filtering, 2 nodes remain.
+DEBUG: Selected 2 documents (out of 2 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'dyspnoea'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Respiratory'}
+DEBUG: After filtering, 2 nodes remain.
+DEBUG: Selected 2 documents (out of 2 filtered) for LLM context.
+
+Model Response:
+- dyspnoea
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 4.0 years (child). Patient Sex: M. Reported Reaction: dyspnoea. Reaction Syst...
+  Metadata: {'primaryid': 218711948, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dyspnoea', 'reaction_category': 'Respiratory', 'age': 4.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 4.0 years (child). Patient Sex: M. Reported Reaction: dyspnoea. Reaction Syst...
+  Metadata: {'primaryid': 2187119411, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dyspnoea', 'reaction_category': 'Respiratory', 'age': 4.0, 'sex': 'M', 'age_group': 'child'}
+Actual Retrieved PTs (from RAG sources): {'dyspnoea'}
+Generated Reactions (from LLM output, post-filtered): {'dyspnoea'}
+Retrieval Precision: 1.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.18
+ROUGE-L F1: 1.00
+Jaccard Similarity: 1.00
+
+--- Running Test Case 15/25 ---
+Query: List allergic reactions to DESLORATADINE in elderly females.
+Ground Truth Reactions: {'pruritus', 'pallor', 'hyperhidrosis', 'hypersensitivity', 'eczema'}
+Expected Retrieved PTs (for retrieval eval): {'pruritus', 'pallor', 'hyperhidrosis', 'hypersensitivity', 'eczema'}
+RAG components already initialized.
+DEBUG: received query: 'List allergic reactions to DESLORATADINE in elderly females.'
+DEBUG: lower_query: 'list allergic reactions to desloratadine in elderly females.'
+DEBUG: Exact match of raw query 'desloratadine' to normalized 'desloratadine'.
+DEBUG: Extracted keyword-based drug 'desloratadine' and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'F', 'age_group': 'elderly', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'elderly', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 14 nodes remain.
+DEBUG: Selected 14 documents (out of 14 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'pallor', 'hyperhidrosis', 'hypersensitivity', 'eczema', 'pruritus'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'elderly', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Dermatological/Allergic'}
+DEBUG: After filtering, 14 nodes remain.
+DEBUG: Selected 14 documents (out of 14 filtered) for LLM context.
+
+Model Response:
+- eczema
+- hyperhidrosis
+- hypersensitivity
+- pallor
+- pruritus
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 75.0 years (elderly). Patient Sex: F. Reported Reaction: hypersensitivity. React...
+  Metadata: {'primaryid': 184465872, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 75.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 76.0 years (elderly). Patient Sex: F. Reported Reaction: hypersensitivity. Reaction Syste...
+  Metadata: {'primaryid': 201343141, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'hypersensitivity', 'reaction_category': 'Dermatological/Allergic', 'age': 76.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 91.0 years (elderly). Patient Sex: F. Reported Reaction: hyperhidrosis. Reaction...
+  Metadata: {'primaryid': 174167897, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'hyperhidrosis', 'reaction_category': 'Dermatological/Allergic', 'age': 91.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 91.0 years (elderly). Patient Sex: F. Reported Reaction: hyperhidrosis. Reaction...
+  Metadata: {'primaryid': 174167894, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'hyperhidrosis', 'reaction_category': 'Dermatological/Allergic', 'age': 91.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 90.0 years (elderly). Patient Sex: F. Reported Reaction: eczema. Reaction System Category...
+  Metadata: {'primaryid': 220262591, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 90.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 90.0 years (elderly). Patient Sex: F. Reported Reaction: eczema. Reaction System Category...
+  Metadata: {'primaryid': 220262592, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 90.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 76.0 years (elderly). Patient Sex: F. Reported Reaction: pruritus. Reaction System Catego...
+  Metadata: {'primaryid': 201343141, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 76.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 90.0 years (elderly). Patient Sex: F. Reported Reaction: pruritus. Reaction System Catego...
+  Metadata: {'primaryid': 220262591, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 90.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 90.0 years (elderly). Patient Sex: F. Reported Reaction: pruritus. Reaction System Catego...
+  Metadata: {'primaryid': 220262592, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 90.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 88.0 years (elderly). Patient Sex: F. Reported Reaction: eczema. Reaction System...
+  Metadata: {'primaryid': 184203121, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 88.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 81.0 years (elderly). Patient Sex: F. Reported Reaction: eczema. Reaction System Category...
+  Metadata: {'primaryid': 204157111, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'eczema', 'reaction_category': 'Dermatological/Allergic', 'age': 81.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 91.0 years (elderly). Patient Sex: F. Reported Reaction: pallor. Reaction System...
+  Metadata: {'primaryid': 174167897, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'pallor', 'reaction_category': 'Dermatological/Allergic', 'age': 91.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 81.0 years (elderly). Patient Sex: F. Reported Reaction: pruritus. Reaction System Catego...
+  Metadata: {'primaryid': 204157111, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'pruritus', 'reaction_category': 'Dermatological/Allergic', 'age': 81.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 91.0 years (elderly). Patient Sex: F. Reported Reaction: pallor. Reaction System...
+  Metadata: {'primaryid': 174167894, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'pallor', 'reaction_category': 'Dermatological/Allergic', 'age': 91.0, 'sex': 'F', 'age_group': 'elderly'}
+Actual Retrieved PTs (from RAG sources): {'pallor', 'hyperhidrosis', 'hypersensitivity', 'eczema', 'pruritus'}
+Generated Reactions (from LLM output, post-filtered): {'pallor', 'hyperhidrosis', 'hypersensitivity', 'eczema', 'pruritus'}
+Retrieval Precision: 1.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 1.00
+ROUGE-L F1: 1.00
+Jaccard Similarity: 1.00
+
+--- Running Test Case 16/25 ---
+Query: Are there any general disorders for adult males taking MONTELUKAST?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any general disorders for adult males taking MONTELUKAST?'
+DEBUG: lower_query: 'are there any general disorders for adult males taking montelukast?'
+DEBUG: Direct whole-word match for 'MONTELUKAST' found and matched to: ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']
+DEBUG: returning filters: {'sex': 'M', 'age_group': 'adult', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'M', 'age_group': 'adult', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 17/25 ---
+Query: What are the gastrointestinal effects of cetirizine in infants?
+Ground Truth Reactions: {'abdominal distension', 'abdominal discomfort', 'abnormal faeces', 'abdominal pain'}
+Expected Retrieved PTs (for retrieval eval): {'abdominal distension', 'abdominal discomfort', 'abnormal faeces', 'abdominal pain'}
+RAG components already initialized.
+DEBUG: received query: 'What are the gastrointestinal effects of cetirizine in infants?'
+DEBUG: lower_query: 'what are the gastrointestinal effects of cetirizine in infants?'
+DEBUG: Direct whole-word match for 'CETIRIZINE' found and matched to: ['CETIRIZINE HYDROCHLORIDE', 'CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE']
+DEBUG: returning filters: {'age_group': 'infant', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'infant', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: After filtering, 5 nodes remain.
+DEBUG: Selected 5 documents (out of 5 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'abdominal distension', 'abdominal pain', 'abnormal faeces'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'infant', 'prod_ai': ['CETIRIZINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'CAFFEINE\\CETIRIZINE\\MELATONIN\\MINOXIDIL\\SPIRONOLACTONE', 'CETIRIZINE HYDROCHLORIDE'], 'reaction_category': 'Gastrointestinal'}
+DEBUG: After filtering, 5 nodes remain.
+DEBUG: Selected 5 documents (out of 5 filtered) for LLM context.
+
+Model Response:
+- abdominal distension
+- abnormal faeces
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 2.0 years (infant). Patient Sex: M. Reported Reaction: abdominal pain. Reaction S...
+  Metadata: {'primaryid': 227909341, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 2.0, 'sex': 'M', 'age_group': 'infant'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE. Patient Age: 2.0 years (infant). Patient Sex: M. Reported Reaction: abdominal pain. Reaction S...
+  Metadata: {'primaryid': 227642951, 'drugname': 'CETIRIZINE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 2.0, 'sex': 'M', 'age_group': 'infant'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HYDROCHLORIDE.. Patient Age: 2.0 years (infant). Patient Sex: unknown. Reported Reaction: abdom...
+  Metadata: {'primaryid': 168887602, 'drugname': 'CETIRIZINE HYDROCHLORIDE.', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal pain', 'reaction_category': 'Gastrointestinal', 'age': 2.0, 'sex': 'unknown', 'age_group': 'infant'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HYDROCHLORIDE. Patient Age: 0.0 years (infant). Patient Sex: F. Reported Reaction: abdominal di...
+  Metadata: {'primaryid': 235012511, 'drugname': 'CETIRIZINE HYDROCHLORIDE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abdominal distension', 'reaction_category': 'Gastrointestinal', 'age': 0.0, 'sex': 'F', 'age_group': 'infant'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: CETIRIZINE HYDROCHLORIDE. Drug Name: CETIRIZINE HYDROCHLORIDE. Patient Age: 0.0 years (infant). Patient Sex: F. Reported Reaction: abnormal fae...
+  Metadata: {'primaryid': 204570041, 'drugname': 'CETIRIZINE HYDROCHLORIDE', 'prod_ai': 'CETIRIZINE HYDROCHLORIDE', 'pt': 'abnormal faeces', 'reaction_category': 'Gastrointestinal', 'age': 0.0, 'sex': 'F', 'age_group': 'infant'}
+Actual Retrieved PTs (from RAG sources): {'abdominal distension', 'abdominal pain', 'abnormal faeces'}
+Generated Reactions (from LLM output, post-filtered): {'abdominal distension', 'abnormal faeces'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.75
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.09
+ROUGE-L F1: 0.67
+Jaccard Similarity: 0.50
+
+--- Running Test Case 18/25 ---
+Query: Report any psychiatric issues with LORATADINE in children.
+Ground Truth Reactions: {'self-injurious ideation', 'agitation', 'depression', 'suicidal ideation', 'loss of consciousness', 'delirium', 'confusional state', 'suicide attempt', 'depressed level of consciousness', 'shock', 'antisocial behaviour', 'abnormal behaviour', 'hallucination', 'panic reaction', 'anxiety', 'altered state of consciousness', 'psychomotor hyperactivity', 'aggression'}
+Expected Retrieved PTs (for retrieval eval): {'self-injurious ideation', 'agitation', 'depression', 'suicidal ideation', 'loss of consciousness', 'delirium', 'confusional state', 'suicide attempt', 'depressed level of consciousness', 'shock', 'antisocial behaviour', 'abnormal behaviour', 'hallucination', 'panic reaction', 'anxiety', 'altered state of consciousness', 'psychomotor hyperactivity', 'aggression'}
+RAG components already initialized.
+DEBUG: received query: 'Report any psychiatric issues with LORATADINE in children.'
+DEBUG: lower_query: 'report any psychiatric issues with loratadine in children.'
+DEBUG: Exact match of raw query 'loratadine' to normalized 'loratadine'.
+DEBUG: Extracted keyword-based drug 'loratadine' and matched to: ['LORATADINE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE']
+DEBUG: returning filters: {'age_group': 'child', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Psychiatric'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Psychiatric'}
+DEBUG: After filtering, 13 nodes remain.
+DEBUG: Selected 13 documents (out of 13 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'agitation', 'antisocial behaviour', 'abnormal behaviour', 'panic reaction', 'anxiety', 'suicidal ideation', 'delirium', 'confusional state', 'psychomotor hyperactivity'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Psychiatric'}
+DEBUG: After filtering, 13 nodes remain.
+DEBUG: Selected 13 documents (out of 13 filtered) for LLM context.
+
+Model Response:
+- abnormal behaviour
+- agitation
+- anxiety
+- confusional state
+- delirium
+- panic reaction
+- psychomotor hyperactivity
+- suicidal ideation
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: CHILDRENS LORATADINE. Patient Age: 7.0 years (child). Patient Sex: M. Reported Reaction: antisocial behaviour. Reaction ...
+  Metadata: {'primaryid': 233937091, 'drugname': 'CHILDRENS LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'antisocial behaviour', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: CHILDRENS LORATADINE. Patient Age: 7.0 years (child). Patient Sex: M. Reported Reaction: suicidal ideation. Reaction Sys...
+  Metadata: {'primaryid': 233937091, 'drugname': 'CHILDRENS LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'suicidal ideation', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: CHILDRENS LORATADINE. Patient Age: 7.0 years (child). Patient Sex: M. Reported Reaction: confusional state. Reaction Sys...
+  Metadata: {'primaryid': 233937091, 'drugname': 'CHILDRENS LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'confusional state', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: anxiety. Reaction System Category: Psych...
+  Metadata: {'primaryid': 182825131, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'anxiety', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: anxiety. Reaction System Category: Psych...
+  Metadata: {'primaryid': 183073751, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'anxiety', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: CHILDRENS LORATADINE. Patient Age: 7.0 years (child). Patient Sex: M. Reported Reaction: psychomotor hyperactivity. Reac...
+  Metadata: {'primaryid': 233937091, 'drugname': 'CHILDRENS LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'psychomotor hyperactivity', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: psychomotor hyperactivity. Reaction Syst...
+  Metadata: {'primaryid': 182825131, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'psychomotor hyperactivity', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: CHILDRENS LORATADINE. Patient Age: 7.0 years (child). Patient Sex: M. Reported Reaction: abnormal behaviour. Reaction Sy...
+  Metadata: {'primaryid': 233937091, 'drugname': 'CHILDRENS LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'abnormal behaviour', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: psychomotor hyperactivity. Reaction Syst...
+  Metadata: {'primaryid': 183073751, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'psychomotor hyperactivity', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: agitation. Reaction System Category: Psy...
+  Metadata: {'primaryid': 182825131, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'agitation', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 5.0 years (child). Patient Sex: M. Reported Reaction: agitation. Reaction System Category: Psy...
+  Metadata: {'primaryid': 183073751, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'agitation', 'reaction_category': 'Psychiatric', 'age': 5.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 7.0 years (child). Patient Sex: F. Reported Reaction: delirium. Reaction System Category: Psych...
+  Metadata: {'primaryid': 220405861, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'delirium', 'reaction_category': 'Psychiatric', 'age': 7.0, 'sex': 'F', 'age_group': 'child'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 11.0 years (child). Patient Sex: F. Reported Reaction: panic reaction. Reaction System Categor...
+  Metadata: {'primaryid': 197070242, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'panic reaction', 'reaction_category': 'Psychiatric', 'age': 11.0, 'sex': 'F', 'age_group': 'child'}
+Actual Retrieved PTs (from RAG sources): {'agitation', 'antisocial behaviour', 'abnormal behaviour', 'panic reaction', 'anxiety', 'suicidal ideation', 'delirium', 'confusional state', 'psychomotor hyperactivity'}
+Generated Reactions (from LLM output, post-filtered): {'agitation', 'abnormal behaviour', 'panic reaction', 'anxiety', 'suicidal ideation', 'delirium', 'confusional state', 'psychomotor hyperactivity'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.50
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.09
+ROUGE-L F1: 0.54
+Jaccard Similarity: 0.44
+
+--- Running Test Case 19/25 ---
+Query: Are there any cardiovascular reactions for adolescent females using DESLORATADINE?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any cardiovascular reactions for adolescent females using DESLORATADINE?'
+DEBUG: lower_query: 'are there any cardiovascular reactions for adolescent females using desloratadine?'
+DEBUG: Direct whole-word match for 'DESLORATADINE' found and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'F', 'age_group': 'adolescent', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'adolescent', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 20/25 ---
+Query: Show me musculoskeletal reactions for elderly females using MONTELUKAST.
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Show me musculoskeletal reactions for elderly females using MONTELUKAST.'
+DEBUG: lower_query: 'show me musculoskeletal reactions for elderly females using montelukast.'
+DEBUG: Direct whole-word match for 'MONTELUKAST' found and matched to: ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']
+DEBUG: returning filters: {'sex': 'F', 'age_group': 'elderly', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Musculoskeletal'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'elderly', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Musculoskeletal'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 21/25 ---
+Query: Are there any adverse effects for a drug not in the database, like 'NONEXISTENTDRUG'?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any adverse effects for a drug not in the database, like 'NONEXISTENTDRUG'?'
+DEBUG: lower_query: 'are there any adverse effects for a drug not in the database, like 'nonexistentdrug'?'
+DEBUG: no fuzzy match found for 'nonexistentdrug' with threshold 90.
+DEBUG: No fuzzy match for quoted drug: 'nonexistentdrug'
+DEBUG: no fuzzy match found for 'a drug not' with threshold 90.
+DEBUG: No fuzzy match for keyword-based drug: 'a drug not'
+DEBUG: no prod_ai matched for query: 'Are there any adverse effects for a drug not in the database, like 'NONEXISTENTDRUG'?'
+DEBUG: returning filters: {}
+
+Model Response:
+No reactions found for this drug. The drug name was not recognized or is not in the database.
+
+Sources Used:
+No source documents were retrieved as the drug was not recognized.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 22/25 ---
+Query: Report any product issues for children taking DESLORATADINE.
+Ground Truth Reactions: {'expired product administered', 'off label use'}
+Expected Retrieved PTs (for retrieval eval): {'expired product administered', 'off label use'}
+RAG components already initialized.
+DEBUG: received query: 'Report any product issues for children taking DESLORATADINE.'
+DEBUG: lower_query: 'report any product issues for children taking desloratadine.'
+DEBUG: Direct whole-word match for 'DESLORATADINE' found and matched to: ['DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'age_group': 'child', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Product/Administration Issues'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Product/Administration Issues'}
+DEBUG: After filtering, 3 nodes remain.
+DEBUG: Selected 3 documents (out of 3 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'expired product administered', 'off label use'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'child', 'prod_ai': ['DESLORATADINE\\PSEUDOEPHEDRINE SULFATE', 'DESLORATADINE', 'DESLORATADINE\\PSEUDOEPHEDRINE'], 'reaction_category': 'Product/Administration Issues'}
+DEBUG: After filtering, 3 nodes remain.
+DEBUG: Selected 3 documents (out of 3 filtered) for LLM context.
+
+Model Response:
+- expired product administered
+- off label use
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 9.0 years (child). Patient Sex: M. Reported Reaction: off label use. Reaction System Cate...
+  Metadata: {'primaryid': 226503176, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'off label use', 'reaction_category': 'Product/Administration Issues', 'age': 9.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: DESLORATADINE. Patient Age: 9.0 years (child). Patient Sex: M. Reported Reaction: off label use. Reaction System Cate...
+  Metadata: {'primaryid': 226503175, 'drugname': 'DESLORATADINE', 'prod_ai': 'DESLORATADINE', 'pt': 'off label use', 'reaction_category': 'Product/Administration Issues', 'age': 9.0, 'sex': 'M', 'age_group': 'child'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: DESLORATADINE. Drug Name: AERIUS (DESLORATADINE). Patient Age: 9.0 years (child). Patient Sex: F. Reported Reaction: expired product administer...
+  Metadata: {'primaryid': 200044381, 'drugname': 'AERIUS (DESLORATADINE)', 'prod_ai': 'DESLORATADINE', 'pt': 'expired product administered', 'reaction_category': 'Product/Administration Issues', 'age': 9.0, 'sex': 'F', 'age_group': 'child'}
+Actual Retrieved PTs (from RAG sources): {'expired product administered', 'off label use'}
+Generated Reactions (from LLM output, post-filtered): {'expired product administered', 'off label use'}
+Retrieval Precision: 1.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 1.00
+ROUGE-L F1: 1.00
+Jaccard Similarity: 1.00
+
+--- Running Test Case 23/25 ---
+Query: What are the neurological reactions for adult females using FEXOFENADINE?
+Ground Truth Reactions: {'aphonia', 'muscle twitching', 'headache', 'muscle spasms', 'dizziness', 'dizziness postural', 'balance disorder', 'asthenia', 'gait disturbance', 'myalgia', 'somnolence', 'insomnia', 'rhabdomyolysis', 'myopathy', 'loss of personal independence in daily activities', 'polyneuropathy', 'disturbance in attention', 'disorientation', 'musculoskeletal stiffness', 'dyskinesia', 'parosmia', 'paraesthesia', 'amnesia'}
+Expected Retrieved PTs (for retrieval eval): {'aphonia', 'muscle twitching', 'headache', 'muscle spasms', 'dizziness', 'dizziness postural', 'balance disorder', 'asthenia', 'gait disturbance', 'myalgia', 'somnolence', 'insomnia', 'rhabdomyolysis', 'myopathy', 'loss of personal independence in daily activities', 'polyneuropathy', 'disturbance in attention', 'disorientation', 'musculoskeletal stiffness', 'dyskinesia', 'parosmia', 'paraesthesia', 'amnesia'}
+RAG components already initialized.
+DEBUG: received query: 'What are the neurological reactions for adult females using FEXOFENADINE?'
+DEBUG: lower_query: 'what are the neurological reactions for adult females using fexofenadine?'
+DEBUG: Direct whole-word match for 'FEXOFENADINE' found and matched to: ['FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\PSEUDOEPHEDRINE']
+DEBUG: returning filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Neurological'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Neurological'}
+DEBUG: After filtering, 89 nodes remain.
+DEBUG: Selected 30 documents (out of 89 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'polyneuropathy', 'muscle spasms', 'insomnia', 'headache', 'disorientation', 'dizziness', 'asthenia', 'dyskinesia', 'myalgia', 'somnolence', 'amnesia', 'paraesthesia'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'sex': 'F', 'age_group': 'adult', 'prod_ai': ['FEXOFENADINE\\PSEUDOEPHEDRINE', 'FEXOFENADINE HYDROCHLORIDE', 'FEXOFENADINE HYDROCHLORIDE\\PSEUDOEPHEDRINE HYDROCHLORIDE', 'FEXOFENADINE\\FEXOFENADINE HYDROCHLORIDE'], 'reaction_category': 'Neurological'}
+DEBUG: After filtering, 89 nodes remain.
+DEBUG: Selected 30 documents (out of 89 filtered) for LLM context.
+
+Model Response:
+- amnesia
+- asthenia
+- disorientation
+- dizziness
+- insomnia
+- myalgia
+- polyneuropathy
+- somnolence
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 45.0 years (adult). Patient Sex: F. Reported Reaction: myalgia. Reaction Syst...
+  Metadata: {'primaryid': 201264031, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'myalgia', 'reaction_category': 'Neurological', 'age': 45.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: muscle spasms. Reactio...
+  Metadata: {'primaryid': 192432031, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: muscle spasms. Reactio...
+  Metadata: {'primaryid': 192585771, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: muscle spasms. Reactio...
+  Metadata: {'primaryid': 192462251, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'muscle spasms', 'reaction_category': 'Neurological', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 49.0 years (adult). Patient Sex: F. Reported Reaction: polyneuropathy. Reacti...
+  Metadata: {'primaryid': 208488141, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'polyneuropathy', 'reaction_category': 'Neurological', 'age': 49.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 50.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 180012592, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 50.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 34.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 231818191, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 34.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 50.0 years (adult). Patient Sex: F. Reported Reaction: somnolence. Reaction S...
+  Metadata: {'primaryid': 180012592, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 50.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 35.0 years (adult). Patient Sex: F. Reported Reaction: insomnia. Reaction Sys...
+  Metadata: {'primaryid': 199340651, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 35.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 34.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 232457571, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 34.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 49.0 years (adult). Patient Sex: F. Reported Reaction: paraesthesia. Reaction...
+  Metadata: {'primaryid': 208488141, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'paraesthesia', 'reaction_category': 'Neurological', 'age': 49.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 45.0 years (adult). Patient Sex: F. Reported Reaction: headache. Reaction Sys...
+  Metadata: {'primaryid': 201264031, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'headache', 'reaction_category': 'Neurological', 'age': 45.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 34.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 231940031, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 34.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 63.0 years (adult). Patient Sex: F. Reported Reaction: somnolence. Reaction S...
+  Metadata: {'primaryid': 189224591, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 63.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: dyskinesia. Reaction S...
+  Metadata: {'primaryid': 234913241, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dyskinesia', 'reaction_category': 'Neurological', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 196301191, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 39.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 215424781, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 39.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 195928071, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 27.0 years (adult). Patient Sex: F. Reported Reaction: disorientation. Reacti...
+  Metadata: {'primaryid': 247774821, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'disorientation', 'reaction_category': 'Neurological', 'age': 27.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 29.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 206523011, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 29.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 35.0 years (adult). Patient Sex: F. Reported Reaction: insomnia. Reaction Sys...
+  Metadata: {'primaryid': 208308161, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 35.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 40.0 years (adult). Patient Sex: F. Reported Reaction: somnolence. Reaction S...
+  Metadata: {'primaryid': 167796321, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 40.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 25.0 years (adult). Patient Sex: F. Reported Reaction: insomnia. Reaction Sys...
+  Metadata: {'primaryid': 232912851, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 25.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE 180 MG TABLETS. Patient Age: 64.0 years (adult). Patient Sex: F. Reported Reaction: insomni...
+  Metadata: {'primaryid': 166005611, 'drugname': 'FEXOFENADINE 180 MG TABLETS', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'insomnia', 'reaction_category': 'Neurological', 'age': 64.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 60.0 years (adult). Patient Sex: F. Reported Reaction: somnolence. Reaction S...
+  Metadata: {'primaryid': 220758332, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'somnolence', 'reaction_category': 'Neurological', 'age': 60.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 20.0 years (adult). Patient Sex: F. Reported Reaction: amnesia. Reaction Syst...
+  Metadata: {'primaryid': 168954171, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'amnesia', 'reaction_category': 'Neurological', 'age': 20.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 49.0 years (adult). Patient Sex: F. Reported Reaction: asthenia. Reaction Sys...
+  Metadata: {'primaryid': 208488141, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'asthenia', 'reaction_category': 'Neurological', 'age': 49.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 27.0 years (adult). Patient Sex: F. Reported Reaction: disorientation. Reacti...
+  Metadata: {'primaryid': 241639331, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'disorientation', 'reaction_category': 'Neurological', 'age': 27.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 29:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 39.0 years (adult). Patient Sex: F. Reported Reaction: dizziness. Reaction Sy...
+  Metadata: {'primaryid': 192436091, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'dizziness', 'reaction_category': 'Neurological', 'age': 39.0, 'sex': 'F', 'age_group': 'adult'}
+
+Document 30:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: FEXOFENADINE HYDROCHLORIDE. Drug Name: FEXOFENADINE. Patient Age: 41.0 years (adult). Patient Sex: F. Reported Reaction: myalgia. Reaction Syst...
+  Metadata: {'primaryid': 192585771, 'drugname': 'FEXOFENADINE', 'prod_ai': 'FEXOFENADINE HYDROCHLORIDE', 'pt': 'myalgia', 'reaction_category': 'Neurological', 'age': 41.0, 'sex': 'F', 'age_group': 'adult'}
+Actual Retrieved PTs (from RAG sources): {'polyneuropathy', 'muscle spasms', 'insomnia', 'headache', 'disorientation', 'dizziness', 'asthenia', 'dyskinesia', 'myalgia', 'somnolence', 'amnesia', 'paraesthesia'}
+Generated Reactions (from LLM output, post-filtered): {'polyneuropathy', 'disorientation', 'myalgia', 'dizziness', 'asthenia', 'insomnia', 'somnolence', 'amnesia'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.52
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.00
+ROUGE-L F1: 0.36
+Jaccard Similarity: 0.35
+
+--- Running Test Case 24/25 ---
+Query: Are there any psychiatric adverse events for infants using MONTELUKAST?
+Ground Truth Reactions: set()
+Expected Retrieved PTs (for retrieval eval): set()
+RAG components already initialized.
+DEBUG: received query: 'Are there any psychiatric adverse events for infants using MONTELUKAST?'
+DEBUG: lower_query: 'are there any psychiatric adverse events for infants using montelukast?'
+DEBUG: Direct whole-word match for 'MONTELUKAST' found and matched to: ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM']
+DEBUG: returning filters: {'age_group': 'infant', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Psychiatric'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'infant', 'prod_ai': ['LEVOCETIRIZINE DIHYDROCHLORIDE\\MONTELUKAST SODIUM'], 'reaction_category': 'Psychiatric'}
+DEBUG: After filtering, 0 nodes remain.
+DEBUG: Selected 0 documents (out of 0 filtered) for LLM context.
+
+Model Response:
+No reactions found for the specified criteria.
+
+Sources Used:
+No source documents were returned as no relevant documents were found after filtering.
+Actual Retrieved PTs (from RAG sources): set()
+Generated Reactions (from LLM output, post-filtered): set()
+Retrieval Precision: 0.00
+Retrieval Recall: 1.00
+Hit Rate: 1
+BLEU, BERTScore, and ROUGE-L skipped (both generated and ground truth reactions are empty).
+
+--- Running Test Case 25/25 ---
+Query: List all cardiovascular reactions for elderly patients taking LORATADINE.
+Ground Truth Reactions: {'angina pectoris', 'syncope', 'sinus bradycardia', 'nodal arrhythmia', 'hypertension', 'heart rate increased', 'tachycardia', 'arrhythmia', 'atrial fibrillation', 'electrocardiogram qt prolonged', 'torsade de pointes', 'cardiac disorder', 'presyncope', 'cardiac pacemaker insertion', 'palpitations', 'tachyphrenia', 'bradyphrenia'}
+Expected Retrieved PTs (for retrieval eval): {'angina pectoris', 'syncope', 'sinus bradycardia', 'nodal arrhythmia', 'hypertension', 'heart rate increased', 'tachycardia', 'arrhythmia', 'atrial fibrillation', 'electrocardiogram qt prolonged', 'torsade de pointes', 'cardiac disorder', 'presyncope', 'cardiac pacemaker insertion', 'palpitations', 'tachyphrenia', 'bradyphrenia'}
+RAG components already initialized.
+DEBUG: received query: 'List all cardiovascular reactions for elderly patients taking LORATADINE.'
+DEBUG: lower_query: 'list all cardiovascular reactions for elderly patients taking loratadine.'
+DEBUG: Direct whole-word match for 'LORATADINE' found and matched to: ['LORATADINE', 'LORATADINE\\PSEUDOEPHEDRINE SULFATE']
+DEBUG: returning filters: {'age_group': 'elderly', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'elderly', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: After filtering, 36 nodes remain.
+DEBUG: Selected 30 documents (out of 36 filtered) for LLM context.
+DEBUG: Allowed PTs from retrieved documents: {'tachycardia', 'syncope', 'presyncope', 'hypertension', 'palpitations', 'tachyphrenia', 'bradyphrenia'}
+DEBUG: Calculated dynamic desired_k: 30 (based on 4096 n_ctx, 500 prompt, 500 response, 100 avg doc)
+DEBUG: Initial semantic retrieval returned 2000 nodes.
+DEBUG: Applying metadata filters: {'age_group': 'elderly', 'prod_ai': ['LORATADINE\\PSEUDOEPHEDRINE SULFATE', 'LORATADINE'], 'reaction_category': 'Cardiovascular'}
+DEBUG: After filtering, 36 nodes remain.
+DEBUG: Selected 30 documents (out of 36 filtered) for LLM context.
+
+Model Response:
+- bradyphrenia
+- hypertension
+- palpitations
+- presyncope
+- syncope
+- tachycardia
+- tachyphrenia
+
+Sources Used:
+Document 1:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 178327521, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 2:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 178410381, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 3:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 167456812, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 4:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 178491681, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 5:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 167456811, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 6:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 76.0 years (elderly). Patient Sex: M. Reported Reaction: tachyphrenia. Reaction System Categor...
+  Metadata: {'primaryid': 181298671, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'tachyphrenia', 'reaction_category': 'Cardiovascular', 'age': 76.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 7:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 167786061, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 8:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 67.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 200906101, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 67.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 9:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 167558171, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 10:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 178179941, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 11:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 70.0 years (elderly). Patient Sex: unknown. Reported Reaction: palpitations. Reaction System Ca...
+  Metadata: {'primaryid': 200743692, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 70.0, 'sex': 'unknown', 'age_group': 'elderly'}
+
+Document 12:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 167750011, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 13:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 73.0 years (elderly). Patient Sex: M. Reported Reaction: presyncope. Reaction System Category:...
+  Metadata: {'primaryid': 169307711, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'presyncope', 'reaction_category': 'Cardiovascular', 'age': 73.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 14:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 76.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 196861031, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 76.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 15:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 68.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Categor...
+  Metadata: {'primaryid': 181299761, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 68.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 16:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 77.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 212852701, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 77.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 17:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169467901, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 18:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 90.0 years (elderly). Patient Sex: M. Reported Reaction: bradyphrenia. Reaction System Categor...
+  Metadata: {'primaryid': 166989131, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'bradyphrenia', 'reaction_category': 'Cardiovascular', 'age': 90.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 19:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 84.0 years (elderly). Patient Sex: F. Reported Reaction: tachycardia. Reaction System Category...
+  Metadata: {'primaryid': 170970891, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'tachycardia', 'reaction_category': 'Cardiovascular', 'age': 84.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 20:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169311683, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 21:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 66.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 211738211, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 66.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 22:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 74.0 years (elderly). Patient Sex: M. Reported Reaction: hypertension. Reaction System Category...
+  Metadata: {'primaryid': 241516321, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'hypertension', 'reaction_category': 'Cardiovascular', 'age': 74.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 23:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169311682, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 24:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169467902, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 25:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 67.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 191917792, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 67.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 26:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169092051, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 27:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 66.0 years (elderly). Patient Sex: M. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 211738661, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 66.0, 'sex': 'M', 'age_group': 'elderly'}
+
+Document 28:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE. Patient Age: 84.0 years (elderly). Patient Sex: F. Reported Reaction: palpitations. Reaction System Category...
+  Metadata: {'primaryid': 212203111, 'drugname': 'LORATADINE', 'prod_ai': 'LORATADINE', 'pt': 'palpitations', 'reaction_category': 'Cardiovascular', 'age': 84.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 29:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169566962, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+
+Document 30:
+  Content snippet: Adverse Drug Reaction Report:
+Product Active Ingredient: LORATADINE. Drug Name: LORATADINE.. Patient Age: 69.0 years (elderly). Patient Sex: F. Reported Reaction: syncope. Reaction System Category: Ca...
+  Metadata: {'primaryid': 169398101, 'drugname': 'LORATADINE.', 'prod_ai': 'LORATADINE', 'pt': 'syncope', 'reaction_category': 'Cardiovascular', 'age': 69.0, 'sex': 'F', 'age_group': 'elderly'}
+Actual Retrieved PTs (from RAG sources): {'tachycardia', 'syncope', 'presyncope', 'hypertension', 'palpitations', 'tachyphrenia', 'bradyphrenia'}
+Generated Reactions (from LLM output, post-filtered): {'tachycardia', 'syncope', 'presyncope', 'hypertension', 'palpitations', 'tachyphrenia', 'bradyphrenia'}
+Retrieval Precision: 1.00
+Retrieval Recall: 0.41
+Hit Rate: 1
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BERTScore F1: 1.00
+BLEU Score: 0.01
+ROUGE-L F1: 0.38
+Jaccard Similarity: 0.41
+
+--- Overall RAG Model Evaluation Results ---
+Average Retrieval Precision: 0.52
+Average Retrieval Recall: 0.85
+Average Hit Rate: 1.00
+Average BERTScore F1: 1.00
+Average ROUGE-L F1: 0.80
+Average BLEU Score: 0.62
+Average Jaccard Score: 0.57
